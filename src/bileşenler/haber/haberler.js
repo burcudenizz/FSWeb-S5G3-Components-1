@@ -116,6 +116,8 @@ const data = [
   Eklediğiniz yeni haberi görmek için sayfayı yenileyin.
 */
 
+//1.ADIM
+
 function haberYapici(news) {
   const haberBox = document.createElement("div");
   haberBox.classList.add("article");
@@ -145,4 +147,25 @@ function haberYapici(news) {
   spanButton.classList.add("expandButton");
   spanButton.textContent = "+";
   haberBox.appendChild(spanButton);
+
+  //2.ADIM
+
+  spanButton.addEventListener("click", (event) => {
+    event.target.parentElement.classList.toggle("article-open");
+  });
+
+  //3.ADIM
+  return haberBox;
 }
+
+const containerAll = document.querySelector(".articles");
+
+//4.ADIM
+
+let tumHaberler = data.map((someArr) => {
+  return haberYapici(someArr);
+});
+
+tumHaberler.forEach((h) => {
+  containerAll.appendChild(h);
+});
