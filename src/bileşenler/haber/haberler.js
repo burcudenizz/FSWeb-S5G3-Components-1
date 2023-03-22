@@ -151,10 +151,11 @@ function haberYapici(news) {
   //2.ADIM
 
   spanButton.addEventListener("click", (event) => {
-    event.target.parentElement.classList.toggle("article-open");
+    haberBox.classList.toggle("article-open");
   });
 
   //3.ADIM
+
   return haberBox;
 }
 
@@ -162,10 +163,16 @@ const containerAll = document.querySelector(".articles");
 
 //4.ADIM
 
-let tumHaberler = data.map((someArr) => {
-  return haberYapici(someArr);
-});
+// let tumHaberler = data.map((someArr) => {
+//   return haberYapici(someArr);
+// });
 
-tumHaberler.forEach((h) => {
-  containerAll.appendChild(h);
+// tumHaberler.forEach((h) => {
+//   containerAll.appendChild(h);
+// });
+
+//2.yol:
+
+data.map((item) => {
+  containerAll.appendChild(haberYapici(item));
 });
